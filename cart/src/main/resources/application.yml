@@ -1,0 +1,11 @@
+server:
+    port: 8081
+    context-path: /cart
+management:
+    security:
+        enabled: false
+logging:
+    config: classpath:logback.xml
+log:
+    file:
+        directory: logs
