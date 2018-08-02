@@ -18,6 +18,25 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <version>${spring-cloud-contract-version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <baseClassForTests>henry.jonathan.promotion.contract.ContractTestBase</baseClassForTests>
+
+                    <contractDependency>
+                        <groupId>henry.jonathan</groupId>
+                        <artifactId>promotion-contract</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                    </contractDependency>
+                    <contractsPath>contracts</contractsPath>
+                    <contractsWorkOffline>true</contractsWorkOffline>
+                    <!--<contractsRepositoryUrl>https://artifactory.gdn-app.com/artifactory/libs-snapshots-local</contractsRepositoryUrl>-->
+                    <jarSkip>true</jarSkip>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>com.gdn.maven.plugin</groupId>
                 <artifactId>clientsdk-generator-maven-plugin</artifactId>
                 <version>0.2.0</version>
@@ -27,7 +46,7 @@
                             <goal>template</goal>
                             <goal>generate</goal>
                         </goals>
-                        <phase>install</phase>
+                        <!--<phase>install</phase>-->
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/swagger.json
                             </inputSpec>
@@ -42,6 +61,9 @@
         </plugins>
     </build>
 
+    <dependencyManagement>
+
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -66,6 +88,21 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

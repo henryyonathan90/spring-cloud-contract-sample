@@ -12,7 +12,6 @@
     <artifactId>promotion-contract</artifactId>
 
     <properties>
-        <spring-cloud-contract-version>1.2.5.RELEASE</spring-cloud-contract-version>
         <skipTests>true</skipTests>
     </properties>
 
@@ -39,5 +38,5 @@
             </plugin>
         </plugins>
     </build>
-    
+
 </project>

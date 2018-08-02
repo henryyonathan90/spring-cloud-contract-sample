@@ -2,7 +2,6 @@ package henry.jonathan.cart.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import henry.jonathan.cart.model.CartItem;
-import henry.jonathan.cart.model.FindCartRequest;
 import henry.jonathan.cart.model.FindCartResponse;
 import henry.jonathan.cart.service.api.CartService;
 import henry.jonathan.clientsdk.api.PromotionControllerApi;
@@ -28,7 +27,7 @@ public class CartServiceImpl implements CartService {
   @Autowired
   private ObjectMapper objectMapper;
 
-  public FindCartResponse findCart(FindCartRequest findCartRequest) {
+  public FindCartResponse findCart(String cartId) {
     List<CartItem> cartItems = Arrays.asList(CartItem.builder()
             .itemId("Shampoo")
             .unitPrice(new BigDecimal("200000"))
@@ -37,7 +36,7 @@ public class CartServiceImpl implements CartService {
         CartItem.builder().itemId("Soap").unitPrice(new BigDecimal("100000")).quantity(2).build());
 
     return FindCartResponse.builder()
-        .cartId(findCartRequest.getCartId())
+        .cartId(cartId)
         .cartItems(cartItems)
         .discount(promotionControllerApi.calcPromotionUsingPOST(CalcPromotionRequest.builder()
             .cartItems(cartItems.stream()
