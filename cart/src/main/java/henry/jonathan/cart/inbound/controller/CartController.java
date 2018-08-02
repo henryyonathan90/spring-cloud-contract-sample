@@ -1,4 +1,4 @@
-package henry.jonathan.cart.controller;
+package henry.jonathan.cart.inbound.controller;
 
 import henry.jonathan.cart.model.FindCartRequest;
 import henry.jonathan.cart.model.FindCartResponse;
@@ -21,7 +21,7 @@ public class CartController {
   private CartService cartService;
 
   @GetMapping
-  public RestResponse<FindCartResponse> addToCart(FindCartRequest findCartRequest) {
+  public RestResponse<FindCartResponse> findCart(FindCartRequest findCartRequest) {
     return RestResponse.<FindCartResponse>builder().data(cartService.findCart(findCartRequest))
         .build();
   }

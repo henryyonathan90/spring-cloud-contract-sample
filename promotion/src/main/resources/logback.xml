@@ -1,6 +1,6 @@
 <configuration scan="true" scanPeriod="1 minutes">
 
-    <property name="logDir" value="cart/logs/" />
+    <property name="logDir" value="promotion/logs/" />
 
     <conversionRule conversionWord="clr"
                     converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
@@ -21,7 +21,10 @@
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN:-[%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", GMT+07:00}] ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}</pattern>
+            <pattern>${FILE_LOG_PATTERN:-[%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", GMT+07:00}]
+                ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} :
+                %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}
+            </pattern>
         </encoder>
     </appender>
 
@@ -29,7 +32,8 @@
         <file>${logDir}spring.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--rollover daily-->
-            <fileNamePattern>${logDir}spring.%d{yyyy-MM-dd}.%i-spring.log</fileNamePattern>
+            <fileNamePattern>${logDir}spring.%d{yyyy-MM-dd}.%i-spring.log
+            </fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy
                     class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- or whenever the file size reaches 400MB -->
@@ -37,13 +41,19 @@
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN:-[%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", GMT+07:00}] ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}</pattern>
+            <pattern>${FILE_LOG_PATTERN:-[%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", GMT+07:00}]
+                ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} :
+                %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}
+            </pattern>
         </encoder>
     </appender>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${FILE_LOG_PATTERN:-[%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", GMT+07:00}] ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}</pattern>
+            <pattern>${FILE_LOG_PATTERN:-[%date{"yyyy-MM-dd'T'HH:mm:ss,SSSXXX", GMT+07:00}]
+                ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} :
+                %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}
+            </pattern>
         </encoder>
     </appender>
 

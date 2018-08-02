@@ -1,4 +1,4 @@
-package henry.jonathan.cart.model;
+package henry.jonathan.promotion.model;
 
 import lombok.Builder;
 import lombok.Data;

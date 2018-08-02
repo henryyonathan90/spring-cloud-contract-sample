@@ -1,0 +1,113 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Promotion Desc",
+    "title": "Promotion"
+  },
+  "host": "localhost:8082",
+  "basePath": "/promotion",
+  "tags": [
+    {
+      "name": "promotion-controller",
+      "description": "Promotion Controller"
+    }
+  ],
+  "paths": {
+    "/api/promotion": {
+      "post": {
+        "tags": [
+          "promotion-controller"
+        ],
+        "summary": "calcPromotion",
+        "operationId": "calcPromotionUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "calcPromotionRequest",
+            "description": "calcPromotionRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CalcPromotionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RestResponseOfCalcPromotionResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CalcPromotionRequest": {
+      "type": "object",
+      "properties": {
+        "cartItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CartItem"
+          }
+        }
+      }
+    },
+    "CalcPromotionResponse": {
+      "type": "object",
+      "properties": {
+        "discount": {
+          "type": "number"
+        }
+      }
+    },
+    "CartItem": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unitPrice": {
+          "type": "number"
+        }
+      }
+    },
+    "RestResponseOfCalcPromotionResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CalcPromotionResponse"
+        },
+        "errorCode": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

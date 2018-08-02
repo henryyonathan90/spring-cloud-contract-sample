@@ -1,10 +1,9 @@
-package henry.jonathan.cart.model;
+package henry.jonathan.promotion.model;
 
 import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * @author henry.jonathan
@@ -12,8 +11,6 @@ import java.util.List;
  */
 @Data
 @Builder
-public class FindCartResponse {
-  private String cartId;
-  private List<CartItem> cartItems;
+public class CalcPromotionResponse {
   private BigDecimal discount;
 }

@@ -4,8 +4,20 @@ server:
 management:
     security:
         enabled: false
+security:
+    basic:
+        enabled: false
 logging:
     config: classpath:logback.xml
 log:
     file:
         directory: logs
+feign:
+    client:
+        config:
+            promotion:
+                connectTimeout: 5000
+                readTimeout: 5000
+                loggerLevel: FULL
+promotion:
+    url: http://localhost:8082/promotion

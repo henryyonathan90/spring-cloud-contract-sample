@@ -1,0 +1,8 @@
+server:
+    port: 8082
+    context-path: /promotion
+management:
+    security:
+        enabled: false
+logging:
+    config: classpath:logback.xml

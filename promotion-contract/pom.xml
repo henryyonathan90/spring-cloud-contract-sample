@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-contract-sample</artifactId>
+        <groupId>henry.jonathan</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>promotion-contract</artifactId>
+
+    <properties>
+        <spring-cloud-contract-version>1.2.5.RELEASE</spring-cloud-contract-version>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
+            <version>${spring-cloud-contract-version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <version>${spring-cloud-contract-version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <!-- By default it would search under src/test/resources/ -->
+                    <contractsDirectory>${project.basedir}/src/main/resources/contracts
+                    </contractsDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>

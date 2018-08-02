@@ -11,6 +11,8 @@
     <modules>
         <module>cart</module>
         <module>cart-contract</module>
+        <module>promotion</module>
+        <module>promotion-contract</module>
     </modules>
 
     <dependencyManagement>
