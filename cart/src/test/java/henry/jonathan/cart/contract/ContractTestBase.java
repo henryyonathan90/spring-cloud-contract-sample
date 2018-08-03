@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -29,6 +30,7 @@ import org.springframework.test.web.servlet.MockMvc;
         classes = AutoConfigurationExcludeFilter.class)})
 @AutoConfigureMockMvc
 @Import(ContractTestConfiguration.class)
+@TestPropertySource(locations = "classpath:test.properties")
 @AutoConfigureStubRunner(workOffline = true,
     ids = {"henry.jonathan:promotion-contract:1.0-SNAPSHOT:stubs:8082"})
 public class ContractTestBase {

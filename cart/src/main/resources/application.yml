@@ -9,9 +9,6 @@ security:
         enabled: false
 logging:
     config: classpath:logback.xml
-log:
-    file:
-        directory: logs
 feign:
     client:
         config:
@@ -20,4 +17,4 @@ feign:
                 readTimeout: 5000
                 loggerLevel: FULL
 promotion:
-    url: http://localhost:8082
+    url: http://localhost:8082/promotion
