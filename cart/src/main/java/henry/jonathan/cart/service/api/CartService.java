@@ -9,6 +9,6 @@ import henry.jonathan.cart.model.FindCartResponse;
  */
 public interface CartService {
 
-  FindCartResponse findCart(FindCartRequest findCartRequest);
+  FindCartResponse findCart(String cartId);
 
 }

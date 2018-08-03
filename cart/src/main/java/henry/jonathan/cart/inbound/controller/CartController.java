@@ -7,6 +7,7 @@ import henry.jonathan.cart.service.api.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,8 +22,8 @@ public class CartController {
   private CartService cartService;
 
   @GetMapping
-  public RestResponse<FindCartResponse> findCart(FindCartRequest findCartRequest) {
-    return RestResponse.<FindCartResponse>builder().data(cartService.findCart(findCartRequest))
+  public RestResponse<FindCartResponse> findCart(@RequestParam  String cartId) {
+    return RestResponse.<FindCartResponse>builder().data(cartService.findCart(cartId))
         .build();
   }
 }

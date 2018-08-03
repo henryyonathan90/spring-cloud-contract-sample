@@ -9,9 +9,6 @@ security:
         enabled: false
 logging:
     config: classpath:logback.xml
-log:
-    file:
-        directory: logs
 feign:
     client:
         config:
